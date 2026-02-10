@@ -9,6 +9,10 @@ from books_recommender.constant import *
 
 class AppConfiguration:
     def __init__(self, config_file_path: str = CONFIG_FILE_PATH):
+        """
+        Reads the YAML config file and provides typed config objects
+        config_file_path: str path to config.yaml
+        """
         try:
             self.configs_info = read_yaml_file(file_path=config_file_path)
         except Exception as e:

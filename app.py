@@ -18,6 +18,10 @@ class Recommendation:
 
 
     def fetch_poster(self,suggestion):
+        """
+        Looks up book titles and image URLs for the suggested book indices
+        suggestion: array of nearest neighbor indices from the KNN model
+        """
         try:
             book_name = []
             ids_index = []
@@ -44,6 +48,10 @@ class Recommendation:
 
 
     def recommend_book(self,book_name):
+        """
+        Finds the 5 nearest neighbors for the given book using the trained KNN model
+        book_name: str title of the selected book
+        """
         try:
             books_list = []
             model = pickle.load(open(self.recommendation_config.trained_model_path,'rb'))
@@ -64,6 +72,9 @@ class Recommendation:
 
 
     def train_engine(self):
+        """
+        Runs the full training pipeline and displays a completion message
+        """
         try:
             obj = TrainingPipeline()
             obj.start_training_pipeline()
@@ -74,6 +85,10 @@ class Recommendation:
 
     
     def recommendations_engine(self,selected_books):
+        """
+        Displays the top 5 recommended books with cover images in Streamlit columns
+        selected_books: str title chosen from the dropdown
+        """
         try:
             recommended_books,poster_url = self.recommend_book(selected_books)
             col1, col2, col3, col4, col5 = st.columns(5)

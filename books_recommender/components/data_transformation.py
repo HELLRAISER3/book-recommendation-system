@@ -15,6 +15,10 @@ class DataTransformation:
             raise AppException(e, sys) from e
 
     def get_data_transformer(self):
+        """
+        Creates a pivot table from the cleaned data and serializes
+        the book names, book pivot, and transformed data as pickle files
+        """
         try:
             df = pd.read_csv(self.data_transformation_config.clean_data_file_path)
             book_pivot = df.pivot_table(columns='user_id', index='title', values= 'rating')

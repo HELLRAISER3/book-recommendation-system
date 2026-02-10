@@ -15,6 +15,10 @@ class ModelTrainer:
             raise AppException(e, sys) from e
     
     def train(self):
+        """
+        Loads the pivot table, converts to sparse matrix, and fits
+        a NearestNeighbors model with brute-force algorithm
+        """
         try:
             book_pivot = pickle.load(open(self.model_trainer_config.transformed_data_file_dir,'rb'))
             book_sparse = csr_matrix(book_pivot)

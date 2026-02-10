@@ -1,6 +1,5 @@
 import os
 import sys
-import ast 
 import pandas as pd
 import pickle
 from books_recommender.logger.log import logging
@@ -15,6 +14,10 @@ class DataValidation:
             raise AppException(e, sys) from e
     
     def preprocess_data(self):
+        """
+        Cleans and filters books/ratings data, keeps users with 200+ ratings
+        and books with 50+ ratings, removes duplicates
+        """
         try:
             ratings = pd.read_csv(self.data_validation_config.ratings_csv_file, sep=";", on_bad_lines='skip', encoding='latin-1')
             books = pd.read_csv(self.data_validation_config.books_csv_file, sep=";", on_bad_lines='skip', encoding='latin-1')
