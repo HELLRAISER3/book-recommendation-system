@@ -99,20 +99,20 @@ class Recommendation:
 
 
 if __name__ == "__main__":
-    st.header('End to End Books Recommender System')
-    st.text("This is a collaborative filtering based recommendation system!")
+    st.header('Books Recommender System')
+    st.text("Collaborative filtering is so fun!")
 
     obj = Recommendation()
 
-    #Training
     if st.button('Train Recommender System'):
         obj.train_engine()
 
-    book_names = pickle.load(open(os.path.join('templates','book_names.pkl') ,'rb'))
+    book_names = pickle.load(open(os.path.join('templates', 'book_names.pkl'), 'rb'))
+
     selected_books = st.selectbox(
         "Type or select a book from the dropdown",
-        book_names)
-    
-    #recommendation
+        book_names
+    )
+
     if st.button('Show Recommendation'):
         obj.recommendations_engine(selected_books)
