@@ -61,7 +61,7 @@ book-recommendation-system/
 ### Local
 
 ```bash
-git clone https://github.com/<your-username>/book-recommendation-system.git
+git clone https://github.com/HELLRAISER3/book-recommendation-system.git
 cd book-recommendation-system
 pip install -r requirements.txt
 ```
