@@ -2,14 +2,6 @@
 
 A collaborative filtering-based book recommendation engine built with Python and Streamlit. Given a book title, the system suggests 5 similar books using a K-Nearest Neighbors model trained on user rating patterns.
 
-## How It Works
-
-1. **Data Ingestion** -- Downloads the dataset from Kaggle and extracts the raw CSV files.
-2. **Data Validation** -- Cleans the data by filtering out inactive users (fewer than 200 ratings) and unpopular books (fewer than 50 ratings), then removes duplicates.
-3. **Data Transformation** -- Builds a pivot table (books vs. users) from the cleaned ratings and fills missing values with zeros.
-4. **Model Training** -- Converts the pivot table to a sparse matrix and fits a K-Nearest Neighbors model using brute-force distance computation.
-5. **Recommendation** -- For a selected book, the trained KNN model finds the 5 most similar books based on rating patterns and displays them with cover images.
-
 ## Tech Stack
 
 - **Python 3.13**
